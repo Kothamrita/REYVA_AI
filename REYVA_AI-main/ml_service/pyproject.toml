@@ -1,0 +1,31 @@
+[project]
+name = "reyva-ai-ml"
+version = "0.1.0"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.30,<1",
+  "numpy>=1.26,<2",
+  "xarray>=2025.1",
+  "dask[array]>=2025.1",
+  "netcdf4>=1.7",
+  "cfgrib>=0.9.15",
+  "rasterio>=1.4,<2",
+  "metpy>=1.6",
+  "torch==2.13.0",
+  "diffusers>=0.32,<1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "httpx>=0.27"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
